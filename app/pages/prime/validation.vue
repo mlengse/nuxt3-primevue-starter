@@ -125,30 +125,19 @@ async function submitHandler() {
 }
 </script>
 
-<template>
-  <div class="card flex flex-wrap gap-10">
-    <div class="basis-1/3 md:basis-1/4">
-      <h2>Data Edit</h2>
-
-      <div v-if="data" class="min-w-25rem">
-        <FormKitDataEdit
-          :schema="schema" :data="data"
-          :debug-schema="false" :debug-data="true"
-          :submit-label="t('save')"
-          @data-saved="submitHandler"
-        />
-      </div>
-    </div>
-    <div class="basis-1/2 md:basis-1/3">
-      <h2>Formkit-PrimeVue</h2>
-      <div class="text-xl mt-12">
-        <h4>GitHub</h4>
-        <a href="https://github.com/sfxcode/formkit-primevue">formkit-primevue</a>
-        <h4>More examples</h4>
-        <a href="https://formkit-primevue.netlify.app/">Formkit PrimeVue Demo</a>
-      </div>
-    </div>
-  </div>
+<template lang="pug">
+div.card.flex.flex-wrap.gap-10
+  div(class="basis-1/3 md:basis-1/4")
+    h2 Data Edit
+    div(v-if="data").min-w-25rem
+      FormKitDataEdit(:schema="schema", :data="data", :debug-schema="false", :debug-data="true", :submit-label="t('save')", @data-saved="submitHandler")
+  div(class="basis-1/2 md:basis-1/3")
+    h2 Formkit-PrimeVue
+    div.text-xl.mt-12
+      h4 GitHub
+      a(href="https://github.com/sfxcode/formkit-primevue") formkit-primevue
+      h4 More examples
+      a(href="https://formkit-primevue.netlify.app/") Formkit PrimeVue Demo
 </template>
 
 <style lang='scss' scoped>

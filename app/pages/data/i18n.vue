@@ -8,20 +8,15 @@ const availableLocales = computed(() => {
 })
 </script>
 
-<template>
-  <div class="card">
-    <h2>Localization</h2>
-    Switch Locale to
-    <a
-      v-for="currentLocale in availableLocales"
-      :key="currentLocale.code"
-      href="#"
-      @click.prevent.stop="setLocale(currentLocale.code)"
-    >{{ currentLocale.name }}</a>
-    <p>{{ t('save') }}</p>
-    <p>{{ d(testDate, 'short') }}</p>
-    <p>{{ n(testNumber, 'currency') }}</p>
-  </div>
+<template lang="pug">
+div.card
+  h2 Localization
+  | Switch Locale to 
+  a(v-for="currentLocale in availableLocales", :key="currentLocale.code", href="#", @click.prevent.stop="setLocale(currentLocale.code)")  {{ currentLocale.name }}
+  p {{ t(&apos;save&apos;) }}
+  p {{ d(testDate, &apos;short&apos;) }}
+  p {{ n(testNumber, &apos;currency&apos;) }}
+
 </template>
 
 <style scoped></style>

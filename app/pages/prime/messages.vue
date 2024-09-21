@@ -14,44 +14,29 @@ function doSomeDeleteAction(idToDelete: number) {
 }
 </script>
 
-<template>
-  <div class="card">
-    <h2>PrimeVue Toast Demo</h2>
-    <div class="flex flex-row gap-4">
-      <div>
-        <Button label="Success" class="p-button-success" @click="showSuccessMessage('Success Message', 'Message Content')" />
-      </div>
-      <div>
-        <Button label="Info" class="p-button-info" @click="showInfoMessage('Info Message', 'Message Content')" />
-      </div>
-      <div>
-        <Button label="Warn" class="p-button-warning" @click="showWarnMessage('Warn Message', 'Message Content')" />
-      </div>
-      <div>
-        <Button label="Error" class="p-button-danger" @click="showErrorMessage('Error Message', 'Message Content')" />
-      </div>
-    </div>
-    <h2>Confirmation</h2>
-    <div class="flex flex-row gap-4">
-      <Button label="Trigger action with confirmation" class="p-button-info" @click="confirmAction(doSomeAction)" />
-      <Button label="Trigger delete action with confirmation" class="p-button-danger" @click="confirmDelete(1, doSomeDeleteAction)" />
-    </div>
-    <h2>Messages</h2>
-    <div class="flex flex-row gap-4 flex-wrap">
-      <Message severity="success">
-        Success Message Content
-      </Message>
-      <Message severity="info">
-        Info Message Content
-      </Message>
-      <Message severity="warn">
-        Warning Message Content
-      </Message>
-      <Message severity="error">
-        Error Message Content
-      </Message>
-    </div>
-  </div>
+<template lang="pug">
+div.card
+  h2 PrimeVue Toast Demo
+  div.flex.flex-row.gap-4
+    div
+      Button(label="Success", @click="showSuccessMessage('Success Message', 'Message Content')").p-button-success
+    div
+      Button(label="Info", @click="showInfoMessage('Info Message', 'Message Content')").p-button-info
+    div
+      Button(label="Warn", @click="showWarnMessage('Warn Message', 'Message Content')").p-button-warning
+    div
+      Button(label="Error", @click="showErrorMessage('Error Message', 'Message Content')").p-button-danger
+  h2 Confirmation
+  div.flex.flex-row.gap-4
+    Button(label="Trigger action with confirmation", @click="confirmAction(doSomeAction)").p-button-info
+    Button(label="Trigger delete action with confirmation", @click="confirmDelete(1, doSomeDeleteAction)").p-button-danger
+  h2 Messages
+  div.flex.flex-row.gap-4.flex-wrap
+    Message(severity="success") Success Message Content
+    Message(severity="info") Info Message Content
+    Message(severity="warn") Warning Message Content
+    Message(severity="error") Error Message Content
+
 </template>
 
 <style scoped></style>

@@ -12,7 +12,7 @@ const modes = ['dark', 'light', 'auto']
 
 const { state, next } = useCycleList(modes, { initialValue: mode })
 
-watchEffect(() => mode.value = state.value)
+watchEffect(() => mode.value = <typeof mode.value>state.value)
 </script>
 
 <template>

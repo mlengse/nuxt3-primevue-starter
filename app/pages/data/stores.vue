@@ -8,44 +8,32 @@ onMounted(async () => {
 })
 </script>
 
-<template>
-  <div class="card">
-    <h2>Store Settings</h2>
-    <h5 class="font-bold text-2xl mb-4">
-      Primevue Theme Store
-    </h5>
-    <div class="grid grid-cols-2  gap-4">
-      <div>Theme Name</div>
-      <div>{{ themeStore.themeName }}</div>
-      <div>Theme Color</div>
-      <div>{{ themeStore.themeColor }}</div>
-    </div>
-
-    <h5 class="font-bold text-2xl mb-4">
-      Data Store (Option Store)
-    </h5>
-    <span class="text-xs">Example of a Data Store</span>
-    <div class="grid grid-cols-2 mt-6 gap-4">
-      <div>Products</div>
-      <div>{{ dataStore.products.length }}</div>
-    </div>
-
-    <h5 class="font-bold text-2xl mb-4">
-      Counter Store (Setup Store)
-    </h5>
-    <span class="text-xs">Example of a Data Store</span>
-    <div class="mt-6">
-      <div>
-        <InputText v-model="counterStore.name" />
-      </div>
-    </div>
-    <div class="mt-3">
-      {{ counterStore.name }} clicked {{ counterStore.count }} times. Doubled value: {{ counterStore.doubleCount }}
-    </div>
-    <div class="mt-3">
-      <Button :label="counterStore.name" @click="counterStore.increment()" />
-    </div>
-  </div>
+<template lang="pug">
+div.card
+  h2 Store Settings
+  h5.font-bold.text-2xl.mb-4 Primevue Theme Store
+  div.grid.grid-cols-2.gap-4
+    div Theme Name
+    div {{ themeStore.themeName }}
+    div Theme Color
+    div {{ themeStore.themeColor }}
+  h5.font-bold.text-2xl.mb-4 Data Store (Option Store)
+  span.text-xs Example of a Data Store
+  div.grid.grid-cols-2.mt-6.gap-4
+    div Products
+    div {{ dataStore.products.length }}
+  h5.font-bold.text-2xl.mb-4 Counter Store (Setup Store)
+  span.text-xs Example of a Data Store
+  div.mt-6
+    div
+      InputText(v-model="counterStore.name")
+  div.mt-3 {{ counterStore.name }}
+    | clicked
+    | {{ counterStore.count }}
+    | times. Doubled value:
+    | {{ counterStore.doubleCount }}
+  div.mt-3
+    Button(:label="counterStore.name", @click="counterStore.increment()")
 </template>
 
 <style lang='scss' scoped>

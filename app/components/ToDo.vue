@@ -7,18 +7,13 @@ defineProps({
 })
 </script>
 
-<template>
-  <div>
-    <div class="todo m-4 flex gap-2">
-      <i class="i-mdi-information text-3xl text-[color:var(--primary-color)]" />
-      <div data-testid="test_todo" class="text-2xl">
-        {{ text }}
-      </div>
-    </div>
-    <div class="pt-4 pl-1">
-      <slot />
-    </div>
-  </div>
+<template lang="pug">
+div
+  .todo.m-4.flex.gap-2
+    i.i-mdi-information.text-3xl(class='text-[color:var(--primary-color)]')
+      .text-2xl(data-testid='test_todo') {{ text }}
+  .pt-4.pl-1
+    slot
 </template>
 
 <style scoped>

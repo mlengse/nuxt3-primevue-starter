@@ -9,21 +9,20 @@ function resetText() {
 }
 </script>
 
-<template>
-  <div class="card">
-    <h2>TipTap as alternative Editor</h2>
-
-    <div class="pb-2">
-      <Button size="small" label="Reset" @click="resetText" />
-    </div>
-    <div class="p-tiptap">
-      <TipTap v-model="editorValue" />
-    </div>
-    <div class="pt-8">
-      <pre v-if="false">{{ editorValue }}</pre>
-    </div>
-  </div>
-</template>
+<template lang="pug">
+.card
+  h2 TipTap as alternative Editor
+  .pb-2
+    Button(
+      data-tag="Button" 
+      @click="resetText" 
+      label="Reset" 
+      size="small"
+      )
+  .p-tiptap
+    TipTap(v-model="editorValue")
+  .pt-8
+    pre(v-if="false") {{ editorValue }}</template>
 
 <style lang='scss'>
 
